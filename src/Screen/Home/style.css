@@ -1,0 +1,9 @@
+.App { 
+  height: 100vh;
+}
+
+.MainCardContainer {
+    text-align: center;
+    width: 65rem;
+    margin-top: 15%;
+}
