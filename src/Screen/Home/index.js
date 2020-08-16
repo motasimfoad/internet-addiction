@@ -1,8 +1,25 @@
 import React from 'react';
 import './style.css';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap';
+import Question from '../../Components/Question/questions'
 
-function App() {
+class App extends React.Component{
+
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      counter: 0,
+      questionId: 1,
+      question: '',
+      answerOptions: [],
+      answer: '',
+      answersCount: {},
+      result: ''
+    };
+  }
+  
+render(){
   return (
     <Container fluid className="App">
      
@@ -14,7 +31,9 @@ function App() {
            </h3> 
         </Card.Header>
         <Card.Body>
-        <Card.Title>Your age?</Card.Title>
+        <Card.Title>
+        <Question content="What is your favourite food?" />
+        </Card.Title>
         <Card.Text>
             Some quick example text to build on the card title and make up the bulk
             of the card's content. Some quick example text to build on the card title and make up the bulk
@@ -22,15 +41,18 @@ function App() {
             of the card's content. Some quick example text to build on the card title and make up the bulk
             of the card's content.
         </Card.Text>
-        <Button>
+        </Card.Body>
+        <Card.Footer>
+        <Button size="lg">
             Next
         </Button>
-        </Card.Body>
+        </Card.Footer>
     </Card>
     </Row>
-     
-    </Container>
+   
+   </Container>
   );
+}
 }
 
 export default App;
