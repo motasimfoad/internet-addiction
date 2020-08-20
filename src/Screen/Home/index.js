@@ -16,7 +16,7 @@ function App() {
         </h1>
         <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)}/>
         <input type="number" placeholder="age" onChange={(e)=>setAge(e.target.value)}/>
-        <button onClick={()=>setScreen("second")}>Agreed</button>
+        <button onClick={()=>setScreen("second")}>Continue</button>
       </div>
       ) : (
         <QuizWizard info={[name, age]} />
