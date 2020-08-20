@@ -15,17 +15,20 @@ function pointKeepr(point) {
 
   return (
     <div className="App">
-     {question[questionCounter]} <br />
-     {questionCounter} out of {question.length} <br />
+    
       
     {questionCounter <= question.length-1 ? (
         <div>
-            <button onClick={()=>pointKeepr(0)}>0</button>
-            <button onClick={()=>pointKeepr(1)}>1</button>
-            <button onClick={()=>pointKeepr(2)}>2</button>
-            <button onClick={()=>pointKeepr(3)}>3</button>
-            <button onClick={()=>pointKeepr(4)}>4</button>
-            <button onClick={()=>pointKeepr(5)}>5</button>
+            {question[questionCounter]} <br />
+            {questionCounter} out of {question.length} <br />
+            <div>
+                <button onClick={()=>pointKeepr(0)}>0</button>
+                <button onClick={()=>pointKeepr(1)}>1</button>
+                <button onClick={()=>pointKeepr(2)}>2</button>
+                <button onClick={()=>pointKeepr(3)}>3</button>
+                <button onClick={()=>pointKeepr(4)}>4</button>
+                <button onClick={()=>pointKeepr(5)}>5</button>
+            </div>
         </div>
       ) : (
         <ScoreWizard score={score}/>
