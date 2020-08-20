@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
 
-function Wizard() {
+function Wizard(info) {
 
 const [question] = useState(questionList);
 const [questionCounter, setQuestionCounter] = useState(0);
 const [score, setScore] = useState(0);
+console.log(info.info[1] + info.info[0]);
+
 
 function pointKeepr(point) {
    setQuestionCounter(questionCounter+1)
