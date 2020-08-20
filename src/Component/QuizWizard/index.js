@@ -16,9 +16,9 @@ function pointKeepr(point) {
   return (
     <div className="App">
      {question[questionCounter]} <br />
-     {question.length} <br />
-   
-     {questionCounter <= question.length-1 ? (
+     {questionCounter} out of {question.length} <br />
+      
+    {questionCounter <= question.length-1 ? (
         <div>
             <button onClick={()=>pointKeepr(0)}>0</button>
             <button onClick={()=>pointKeepr(1)}>1</button>
