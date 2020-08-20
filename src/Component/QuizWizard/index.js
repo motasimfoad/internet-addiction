@@ -18,7 +18,7 @@ function pointKeepr(point) {
      {question[questionCounter]} <br />
      {question.length} <br />
    
-     {questionCounter < question.length-1 ? (
+     {questionCounter <= question.length-1 ? (
         <div>
             <button onClick={()=>pointKeepr(0)}>0</button>
             <button onClick={()=>pointKeepr(1)}>1</button>
@@ -30,8 +30,6 @@ function pointKeepr(point) {
       ) : (
         <ScoreWizard score={score}/>
       )}
-
-    <br /> Score : {score}
 
     </div>
   );
