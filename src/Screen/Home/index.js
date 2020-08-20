@@ -14,9 +14,12 @@ function App() {
         <h1>
           bla bla bla bla bla
         </h1>
-        <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)}/>
-        <input type="number" placeholder="age" onChange={(e)=>setAge(e.target.value)}/>
-        <button onClick={()=>setScreen("second")}>Continue</button>
+        <form onSubmit={()=>setScreen("second")}>
+          <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
+          <input type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+          <button type="submit">Continue</button>
+        </form>
+        
       </div>
       ) : (
         <QuizWizard info={[name, age]} />
