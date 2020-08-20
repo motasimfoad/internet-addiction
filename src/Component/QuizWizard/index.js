@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
+import ScoreWizard from '../ScoreWizard';
 
 function Wizard() {
 
@@ -8,8 +9,7 @@ const [questionCounter, setQuestionCounter] = useState(0);
 const [score, setScore] = useState(0);
 
 function pointKeepr(point) {
-    setQuestionCounter(questionCounter+1)
-   console.log(point + 'asdf');
+   setQuestionCounter(questionCounter+1)
    setScore(score+point);
 }
 
@@ -28,7 +28,7 @@ function pointKeepr(point) {
             <button onClick={()=>pointKeepr(5)}>5</button>
         </div>
       ) : (
-        <button>No Button</button>
+        <ScoreWizard score={score}/>
       )}
 
     <br /> Score : {score}

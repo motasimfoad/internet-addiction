@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import QuizWizard from '../../Component/QuizWizard'
-import { First } from 'react-bootstrap/esm/PageItem';
 
 function App() {
 
