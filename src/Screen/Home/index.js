@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import QuizWizard from '../../Component/QuizWizard'
+import QuizWizard from '../../Component/QuizWizard';
+import {Container, Row, Col, Button} from 'react-bootstrap';
+import '../Home/style.css';
 
 function App() {
 
@@ -8,23 +10,28 @@ function App() {
   const [age, setAge] = useState("lala"); 
   
   return (
-    <div className="App">
-      {screen === "first" ? (
-        <div>
-        <h1>
-          bla bla bla bla bla
-        </h1>
-        <form onSubmit={()=>setScreen("second")}>
-          <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
-          <input type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
-          <button type="submit">Continue</button>
-        </form>
+    <Container fluid>
+      <Row> 
+        {screen === "first" ? (
+            <Col className="container">
+              <div className="vertical-center">
+                <h1>
+                  bla bla bla bla bla
+                </h1>
+                <form onSubmit={()=>setScreen("second")}>
+                  <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
+                  <input type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+                  <Button type="submit">Continue</Button>
+                </form>
+              </div>
+            </Col>
+            
         
-      </div>
-      ) : (
-        <QuizWizard info={[name, age]} />
+        ) : (
+          <QuizWizard info={[name, age]} />
       )}
-    </div>
+      </Row>
+    </Container>
   );
 }
 
