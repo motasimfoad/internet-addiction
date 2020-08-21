@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import QuizWizard from '../../Component/QuizWizard';
-import {Container, Row, Col, Button} from 'react-bootstrap';
+import {Container, Row, Col, Button, Form} from 'react-bootstrap';
 import '../Home/style.css';
 
 function App() {
@@ -14,15 +14,20 @@ function App() {
       <Row> 
         {screen === "first" ? (
             <Col className="container">
+
               <div className="vertical-center">
                 <h1>
                   bla bla bla bla bla
                 </h1>
-                <form onSubmit={()=>setScreen("second")}>
-                  <input type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
-                  <input type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+                <Form onSubmit={()=>setScreen("second")}>
+                  <Form.Row>
+                      <Form.Control type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
+                      <Form.Control type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+                  </Form.Row>
+                  < br />
                   <Button type="submit">Continue</Button>
-                </form>
+                </Form>
+                
               </div>
             </Col>
             
