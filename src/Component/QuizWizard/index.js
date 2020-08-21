@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
+import {Button, Card} from 'react-bootstrap';
 
 function Wizard(info) {
 
@@ -24,12 +25,12 @@ function pointKeepr(point) {
             {question[questionCounter]} <br />
             {questionCounter} out of {question.length} <br />
             <div>
-                <button onClick={()=>pointKeepr(0)}>0</button>
-                <button onClick={()=>pointKeepr(1)}>1</button>
-                <button onClick={()=>pointKeepr(2)}>2</button>
-                <button onClick={()=>pointKeepr(3)}>3</button>
-                <button onClick={()=>pointKeepr(4)}>4</button>
-                <button onClick={()=>pointKeepr(5)}>5</button>
+                <Button onClick={()=>pointKeepr(0)}>0</Button>
+                <Button onClick={()=>pointKeepr(1)}>1</Button>
+                <Button onClick={()=>pointKeepr(2)}>2</Button>
+                <Button onClick={()=>pointKeepr(3)}>3</Button>
+                <Button onClick={()=>pointKeepr(4)}>4</Button>
+                <Button onClick={()=>pointKeepr(5)}>5</Button>
             </div>
         </div>
       ) : (
