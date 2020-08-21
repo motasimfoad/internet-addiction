@@ -21,11 +21,11 @@ function App() {
                 </h1>
                 <Form onSubmit={()=>setScreen("second")}>
                   <Form.Row>
-                      <Form.Control type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
-                      <Form.Control type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+                      <Form.Control size="lg" type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
+                      <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
                   </Form.Row>
                   < br />
-                  <Button type="submit">Continue</Button>
+                  <Button  type="submit">Continue</Button>
                 </Form>
                 
               </div>
