@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
-import {Button, Card} from 'react-bootstrap';
+import {Row, Button, Col, Card} from 'react-bootstrap';
 
 function Wizard(info) {
 
@@ -17,11 +17,9 @@ function pointKeepr(point) {
 }
 
   return (
-    <div className="App">
-    
-      
-    {questionCounter <= question.length-1 ? (
-        <div>
+    <Col className="container">
+      {questionCounter <= question.length-1 ? (
+        <div className="vertical-center">
             {question[questionCounter]} <br />
             {questionCounter} out of {question.length} <br />
             <div>
@@ -33,11 +31,13 @@ function pointKeepr(point) {
                 <Button onClick={()=>pointKeepr(5)}>5</Button>
             </div>
         </div>
+       
+       
       ) : (
         <ScoreWizard score={score}/>
       )}
 
-    </div>
+    </Col>
   );
 }
 
