@@ -10,7 +10,7 @@ const [questionCounter, setQuestionCounter] = useState(0);
 const [score, setScore] = useState(0);
 const name = info.info[0];
 const age = info.info[1];
-const progressPercent = questionCounter*20;
+const progressPercent = questionCounter*5;
 
 function pointKeepr(point) {
    setQuestionCounter(questionCounter+1)
