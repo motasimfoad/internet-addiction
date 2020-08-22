@@ -8,9 +8,9 @@ import ReactGa from 'react-ga';
 function App() {
 
 // Google Analytics for Motasim Foad
-
   ReactGa.initialize("UA-154721739-1");
   ReactGa.pageview('Motasim Foads IAT');
+// Google Analytics for Motasim Foad
 
   const [screen, setScreen] = useState("first"); 
   const [name, setName] = useState("No Name"); 
@@ -32,9 +32,9 @@ function App() {
                         Developed by Motasim Foad
                       </h4>
                       <p>
-                      Internet Addiction Test (IAT) is a reliable and valid measure of addictive use of the Internet, developed by Dr. Kimberly Young. 
-                      It consists of 20 items that measure the mild, moderate, and severe levels of Internet Addiction.
-                      To begin, answer the following questions and continue.
+                        Internet Addiction Test (IAT) is a reliable and valid measure of addictive use of the Internet, developed by Dr. Kimberly Young. 
+                        It consists of 20 items that measure the mild, moderate, and severe levels of Internet Addiction.
+                        To begin, answer the following questions and continue.
                       </p>
                     </Alert>
                   <Form onSubmit={()=>setScreen("second")}>

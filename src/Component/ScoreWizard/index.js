@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Col, Card} from 'react-bootstrap';
 import scoreText from '../../Constant/Score';
 import Popup from '../../Screen/Popup';
+import firebase from '../../Firebase/Config';
 
 function ScoreWizard(info) {
 
@@ -13,6 +14,15 @@ function ScoreWizard(info) {
   function refreshPage() {
     window.location.reload(false);
   }
+
+  useEffect(() => {
+    firebase.db.collection('IAT').add({
+      name: name,
+      age: age,
+      score: finalScore,
+      email: "didnt provide email",
+    })
+  }, [])
 
   return (
     <Col className="container">
