@@ -46,7 +46,7 @@ function Popup(props) {
             right: 0,
             }} 
           onClose={() => setShow(false)} show={show} delay={5000} autohide>
-          <Toast.Body>We will get in touch soon 😇</Toast.Body>
+          <Toast.Body>We will get in touch soon <span role="img" aria-label="happy face">😇</span></Toast.Body>
         </Toast>
 
         </Modal>
