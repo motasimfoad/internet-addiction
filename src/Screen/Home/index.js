@@ -19,9 +19,17 @@ function App() {
                 <Card>
                 <Card.Body>
                   <Alert variant="light">
-                      <h1>
-                        bla bla bla bla bla
-                      </h1>
+                      <h2>
+                        Internet Addiction Test (IAT) by Dr. Kimberly Young
+                      </h2>
+                      <h4>
+                        Developed by Motasim Foad
+                      </h4>
+                      <p>
+                      Internet Addiction Test (IAT) is a reliable and valid measure of addictive use of the Internet, developed by Dr. Kimberly Young. 
+                      It consists of 20 items that measure the mild, moderate, and severe levels of Internet Addiction.
+                      To begin, answer the following questions and continue.
+                      </p>
                     </Alert>
                   <Form onSubmit={()=>setScreen("second")}>
                         <Form.Group>

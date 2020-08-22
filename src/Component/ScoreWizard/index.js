@@ -19,6 +19,7 @@ function ScoreWizard(info) {
       <div className="vertical-center">
         <Card>
           <Card.Body>
+            <h1>{name} !!</h1>
             {(finalScore <= 49  &&
                 <div> {scoreText[0]} </div>)
             || (finalScore <= 79 &&
