@@ -3,8 +3,12 @@ import QuizWizard from '../../Component/QuizWizard';
 import {Container, Row, Col, Button, Form, Card, Alert} from 'react-bootstrap';
 import '../Home/style.css';
 import Footer from '../../Component/Footer';
+import ReactGa from 'react-ga';
 
 function App() {
+
+  ReactGa.initialize("UA-154721739-1");
+  ReactGa.pageview('Motasim Foads IAT');
 
   const [screen, setScreen] = useState("first"); 
   const [name, setName] = useState("Dummy"); 
