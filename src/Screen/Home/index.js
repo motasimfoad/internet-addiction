@@ -5,7 +5,7 @@ import '../Home/style.css';
 
 function App() {
 
-  const [screen, setScreen] = useState("second"); 
+  const [screen, setScreen] = useState("first"); 
   const [name, setName] = useState("Dummy"); 
   const [age, setAge] = useState("lala"); 
   
@@ -37,6 +37,11 @@ function App() {
           <QuizWizard info={[name, age]} />
       )}
       </Row>
+        <p style={{textAlign:"center"}}>
+          <a href="https://motasimfoad.com" target="_blank">
+            (C) Motasim Foad
+          </a>
+        </p>
     </Container>
   );
 }
