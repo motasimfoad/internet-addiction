@@ -24,12 +24,12 @@ function App() {
                       </h1>
                     </Alert>
                   <Form onSubmit={()=>setScreen("second")}>
-                    <Form.Group>
+                        <Form.Group>
                         <Form.Control size="lg" type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
                         </Form.Group>
                         <Form.Group>
                         <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
-                    </Form.Group>
+                        </Form.Group>
                     <Button variant="outline-secondary" size="lg" type="submit">Continue</Button>
                   </Form>
                 </Card.Body>

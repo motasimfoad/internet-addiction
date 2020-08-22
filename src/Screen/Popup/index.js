@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, Form} from 'react-bootstrap';
 
 function Popup(props) {
     
     const name = props.info[0];
     const age = props.info[1];
     const score = props.info[2];
-    const [email, setEmail] = useState('email')
+    const [email, setEmail] = useState('email');
 
     return (
       <Modal
@@ -15,15 +15,16 @@ function Popup(props) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-       
-        <Modal.Body closeButton>
+        <Modal.Body>
           <h4>{name}, {age}, {score}, {email}</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-          <Button onClick={props.onHide}>Close</Button>
+          <Form style={{textAlign:'center'}}>
+          <Form.Group>
+          <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
+          </Form.Group>
+          <Button type="submit" variant="outline-dark" size="lg">Submit</Button>
+          <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
+          </Form>
+          
         </Modal.Body>
       </Modal>
     );
