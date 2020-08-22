@@ -4,8 +4,8 @@ function Footer() {
   
   return (
     <p style={{textAlign:"center"}}>
-        <a href="https://motasimfoad.com" target="_blank">
-        (C) Motasim Foad
+        <a href="https://motasimfoad.com" target="_blank" rel="noopener noreferrer">
+          (C) Motasim Foad
         </a>
     </p>
   );

@@ -8,7 +8,8 @@ function Wizard(info) {
 const [question] = useState(questionList);
 const [questionCounter, setQuestionCounter] = useState(0);
 const [score, setScore] = useState(0);
-console.log(info.info[1] + info.info[0]);
+const name = info.info[0];
+const age = info.info[1];
 const progressPercent = questionCounter*20;
 
 function pointKeepr(point) {
@@ -22,13 +23,11 @@ function pointKeepr(point) {
         <div className="vertical-center">
           <Card>
             <Card.Body>
-              <Card.Subtitle style={{textAlign:"right"}}>
+              <Card.Title>
                 <ProgressBar variant="info" animated now={progressPercent} label={`${progressPercent}%`}/>
-              </Card.Subtitle>
+              </Card.Title>
               <Card.Text>
-                <h5>
                 {question[questionCounter]}
-                </h5>
               </Card.Text>
                 <div>
                   <Button variant="outline-dark" onClick={()=>pointKeepr(0)}>N/A</Button>
@@ -42,7 +41,7 @@ function pointKeepr(point) {
           </Card>
         </div>
       ) : (
-        <ScoreWizard score={score}/>
+        <ScoreWizard info={[name, age, score]}/>
       )}
 
     </Col>

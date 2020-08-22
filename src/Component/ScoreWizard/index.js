@@ -1,21 +1,22 @@
 import React, {useState} from 'react';
 import {Button, Col, Card} from 'react-bootstrap';
+import scoreText from '../../Constant/Score';
 
-function ScoreWizard(score) {
+function ScoreWizard(info) {
 
-  const [finalScore] = useState(score.score); 
-  
+  const [finalScore] = useState(info.info[2]); 
+
   return (
     <Col className="container">
       <div className="vertical-center">
         <Card>
           <Card.Body>
             {(finalScore < 8 &&
-                <div> less 8 </div>)
+                <div> {scoreText[0]} </div>)
             || (finalScore < 16 &&
-                <div> less 16 </div>)
+                <div> {scoreText[1]} </div>)
             || (finalScore <= 25 &&
-                <div> less 25 </div>)
+                <div> {scoreText[2]} </div>)
             ||
             <div> NONE </div>
             }
