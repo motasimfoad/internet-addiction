@@ -7,12 +7,14 @@ import ReactGa from 'react-ga';
 
 function App() {
 
+// Google Analytics for Motasim Foad
+
   ReactGa.initialize("UA-154721739-1");
   ReactGa.pageview('Motasim Foads IAT');
 
   const [screen, setScreen] = useState("first"); 
-  const [name, setName] = useState("Dummy"); 
-  const [age, setAge] = useState("lala"); 
+  const [name, setName] = useState("No Name"); 
+  const [age, setAge] = useState("0"); 
   
   return (
     <Container>

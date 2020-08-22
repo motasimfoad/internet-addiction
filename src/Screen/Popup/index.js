@@ -9,38 +9,21 @@ function Popup(props) {
     const score = props.info[2];
     const [email, setEmail] = useState('email');
 
-    // const resultGenerator = () =>{
-    //     firebase.firestore().collection('IAT').add({
-    //       name: props.info[0],
-    //       age: props.info[1],
-    //       score: props.info[2],
-    //       email: email,
-    //     })
-    //     .then(documentReference => {
-    //         console.log('document reference ID', documentReference.id)
-    //       })
-    //       .catch(error => {
-    //         console.log(error.message)
-    //       })
-    //     props.onHide();
-    //   };
-
-      function result(){
-        firebase.firestore().collection('IAT').add({
-            name: props.info[0],
-            age: props.info[1],
-            score: props.info[2],
-            email: email,
+    const resultGenerator = () =>{
+        firebase.db.collection('IAT').add({
+          name: props.info[0],
+          age: props.info[1],
+          score: props.info[2],
+          email: email,
+        })
+        .then(documentReference => {
+            console.log('document reference ID', documentReference.id)
           })
-          .then(documentReference => {
-              console.log('document reference ID', documentReference.id)
-            })
-            .catch(error => {
-              console.log(error.message)
-            })
-          
-      }
-
+          .catch(error => {
+            console.log(error.message)
+          })
+        // props.onHide();
+      };
 
     return (
       <Modal
@@ -54,11 +37,11 @@ function Popup(props) {
             <Alert variant="light">
                 <h4>{name}, {age}, {score}, {email}</h4>
             </Alert>
-        <Form onSubmit={()=>result}>
+        <Form>
             <Form.Group>
                 <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
             </Form.Group>
-            <Button type="submit" variant="outline-dark" size="lg">Submit</Button>
+            <Button onClick={resultGenerator} variant="outline-dark" size="lg">Submit</Button>
             <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
         </Form>
         </Modal.Body>
