@@ -1,7 +1,7 @@
-import * as firebase from 'firebase';
-import firestore from 'firebase/firestore';
+import firebase from 'firebase'
+import 'firebase/firestore'
 
-const config = {
+firebase.initializeApp({
     apiKey: "AIzaSyBlKzUN1eGCNJnLdOFKpDaENlxYlx8A4hA",
     authDomain: "project-b8e76.firebaseapp.com",
     databaseURL: "https://project-b8e76.firebaseio.com",
@@ -10,8 +10,10 @@ const config = {
     messagingSenderId: "820691775250",
     appId: "1:820691775250:web:ead3b102c9245700708dcb",
     measurementId: "G-RX7JL5C44R"
-};
-firebase.initializeApp(config);
-let db = firebase.firestore();
+  });
+  
+let db = firebase.firestore()
 
-export default {firebase, db};
+export default {
+  firebase, db
+}
