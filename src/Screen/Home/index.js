@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import QuizWizard from '../../Component/QuizWizard';
 import {Container, Row, Col, Button, Form, Card, Alert} from 'react-bootstrap';
 import '../Home/style.css';
+import Footer from '../../Component/Footer';
 
 function App() {
 
@@ -39,11 +40,7 @@ function App() {
           <QuizWizard info={[name, age]} />
       )}
       </Row>
-        <p style={{textAlign:"center"}}>
-          <a href="https://motasimfoad.com" target="_blank">
-            (C) Motasim Foad
-          </a>
-        </p>
+      <Footer />
     </Container>
   );
 }
