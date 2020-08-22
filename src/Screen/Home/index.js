@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import QuizWizard from '../../Component/QuizWizard';
-import {Container, Row, Col, Button, Form, Jumbotron, Alert} from 'react-bootstrap';
+import {Container, Row, Col, Button, Form, Card, Alert} from 'react-bootstrap';
 import '../Home/style.css';
 
 function App() {
@@ -15,22 +15,24 @@ function App() {
         {screen === "first" ? (
             <Col className="container">
               <div className="vertical-center">
-                <Jumbotron>
+                <Card>
+                <Card.Body>
                   <Alert variant="light">
-                    <h1>
-                      bla bla bla bla bla
-                    </h1>
-                  </Alert>
-                 <Form onSubmit={()=>setScreen("second")}>
-                  <Form.Group>
-                      <Form.Control size="lg" type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
-                      </Form.Group>
-                      <Form.Group>
-                      <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
-                  </Form.Group>
-                  <Button size="lg" type="submit">Continue</Button>
-                </Form>
-                </Jumbotron>
+                      <h1>
+                        bla bla bla bla bla
+                      </h1>
+                    </Alert>
+                  <Form onSubmit={()=>setScreen("second")}>
+                    <Form.Group>
+                        <Form.Control size="lg" type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
+                        </Form.Group>
+                        <Form.Group>
+                        <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
+                    </Form.Group>
+                    <Button variant="outline-secondary" size="lg" type="submit">Continue</Button>
+                  </Form>
+                </Card.Body>
+                </Card>
               </div>
             </Col>
         ) : (
