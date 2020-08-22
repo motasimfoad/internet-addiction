@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
-import {Button, Col, Card, ButtonGroup, ProgressBar} from 'react-bootstrap';
+import {Button, Col, Card, ProgressBar} from 'react-bootstrap';
 
 function Wizard(info) {
 
@@ -30,14 +30,14 @@ function pointKeepr(point) {
                 {question[questionCounter]}
                 </h5>
               </Card.Text>
-                <ButtonGroup>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(0)}>0</Button>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(1)}>1</Button>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(2)}>2</Button>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(3)}>3</Button>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(4)}>4</Button>
-                  <Button variant="outline-dark" onClick={()=>pointKeepr(5)}>5</Button>
-                </ButtonGroup>
+                <div>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(0)}>N/A</Button>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(1)}>Rarely</Button>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(2)}>Occasionally</Button>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(3)}>Frequently</Button>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(4)}>Often</Button>
+                  <Button variant="outline-dark" onClick={()=>pointKeepr(5)}>Always</Button>
+                </div>
             </Card.Body>
           </Card>
         </div>
