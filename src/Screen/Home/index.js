@@ -18,9 +18,9 @@ function App() {
   
   return (
     <Container>
-      <Row> 
+      <Row className="container"> 
         {screen === "first" ? (
-            <Col className="container">
+            <Col >
               <div className="vertical-center">
                 <Card>
                 <Card.Body>
@@ -54,7 +54,7 @@ function App() {
           <QuizWizard info={[name, age]} />
       )}
       </Row>
-      <Footer />
+        <Footer />
     </Container>
   );
 }

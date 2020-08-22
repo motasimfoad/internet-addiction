@@ -35,7 +35,7 @@ function Popup(props) {
             <Form.Group>
                 <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
             </Form.Group>
-            <Button onClick={resultGenerator} variant="outline-dark" size="lg">Submit</Button>
+            <Button type="submit" onClick={resultGenerator} variant="outline-dark" size="lg">Submit</Button>
             <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
         </Form>
         </Modal.Body>
