@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
-import {Button, Modal, Form, Alert} from 'react-bootstrap';
+import {Button, Modal, Form, Alert, Toast} from 'react-bootstrap';
 import firebase from '../../Firebase/Config';
 
 function Popup(props) {
     
-    const name = props.info[0];
-    const age = props.info[1];
-    const score = props.info[2];
     const [email, setEmail] = useState('email');
+    const [show, setShow] = useState(false);
 
     const resultGenerator = () =>{
         firebase.db.collection('IAT').add({
@@ -17,13 +15,9 @@ function Popup(props) {
           email: email,
         })
         .then(documentReference => {
-            console.log('document reference ID', documentReference.id)
+            setShow(true);
           })
-          .catch(error => {
-            console.log(error.message)
-          })
-        // props.onHide();
-      };
+       };
 
     return (
       <Modal
@@ -35,7 +29,7 @@ function Popup(props) {
       >
         <Modal.Body>
             <Alert variant="light">
-                <h4>{name}, {age}, {score}, {email}</h4>
+                <h4>Enter your email so that we can send you some suggestion/information regarding internet addiction</h4>
             </Alert>
         <Form>
             <Form.Group>
@@ -45,6 +39,16 @@ function Popup(props) {
             <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
         </Form>
         </Modal.Body>
+
+        <Toast style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            }} 
+          onClose={() => setShow(false)} show={show} delay={5000} autohide>
+          <Toast.Body>We will get in touch soon 😇</Toast.Body>
+        </Toast>
+
         </Modal>
     );
   }
