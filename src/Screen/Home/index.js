@@ -6,7 +6,7 @@ import Footer from '../../Component/Footer';
 
 function App() {
 
-  const [screen, setScreen] = useState("first"); 
+  const [screen, setScreen] = useState("second"); 
   const [name, setName] = useState("Dummy"); 
   const [age, setAge] = useState("lala"); 
   
