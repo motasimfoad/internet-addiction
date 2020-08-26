@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Button, Col, Card} from 'react-bootstrap';
+import {Button, Col, Card, ProgressBar, Alert} from 'react-bootstrap';
 import scoreText from '../../Constant/Score';
 import Popup from '../../Screen/Popup';
 import firebase from '../../Firebase/Config';
@@ -37,16 +37,16 @@ function ScoreWizard(info) {
   //   })
   // }, [])
 
-  useEffect(() => {
-    first_add({
-      variables: {
-        age: `%${age}%`,
-        name: `%${name}%`,
-        score: `%${finalScore}%`,
-        email: `%${email}%`,
-      }
-    })
-  }, []);
+  // useEffect(() => {
+  //   first_add({
+  //     variables: {
+  //       age: `%${age}%`,
+  //       name: `%${name}%`,
+  //       score: `%${finalScore}%`,
+  //       email: `%${email}%`,
+  //     }
+  //   })
+  // }, []);
 
   console.log(data);
 
@@ -57,19 +57,18 @@ function ScoreWizard(info) {
           <Card.Body>
             <h1>{name},</h1>
             {(finalScore <= 49  &&
-                <div> {scoreText[0]} </div>)
+                <div> <Alert variant="success"><p>stage: <strong>mild</strong></p> {scoreText[0]}</Alert></div>)
             || (finalScore <= 79 &&
-                <div> {scoreText[1]} </div>)
+                <div> <Alert variant="warning"><p>stage: <strong>moderate</strong></p> {scoreText[1]}</Alert></div>)
             || (finalScore <= 100 &&
-                <div> {scoreText[2]} </div>)
+                <div> <Alert variant="danger"><p>stage: <strong>severe</strong></p> {scoreText[2]}</Alert> </div>)
             ||
             <div> NONE </div>
             }
-          </Card.Body>
-          <Card.Body>
             <Button variant="outline-dark" onClick={() => setModalShow(true)}>Need Assistance?</Button>
             <Button variant="outline-dark" onClick={refreshPage}>Restart</Button>
           </Card.Body>
+          
         </Card>
       </div>
         <Popup
