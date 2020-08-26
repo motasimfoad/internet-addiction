@@ -23,10 +23,10 @@ function App() {
 
   const [screen, setScreen] = useState("first"); 
   const [name, setName] = useState(""); 
-  const [age, setAge] = useState(""); 
+  const [age, setAge] = useState(0); 
   const {loading, error, data} = useQuery(QUERY);
 
-  console.log(data);
+  // console.log(data);
  
   return (
     <Container>
@@ -60,7 +60,7 @@ function App() {
                           !name || !age ? (
                             <Popover id="Popover-disabled">Fill out the form to enable button !</Popover>
                           ) : (
-                            <div></div>
+                            <Popover id="Popover-disabled">Enabled!</Popover>
                           )}>
                           <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
                         </OverlayTrigger>

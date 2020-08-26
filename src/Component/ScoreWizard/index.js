@@ -3,26 +3,52 @@ import {Button, Col, Card} from 'react-bootstrap';
 import scoreText from '../../Constant/Score';
 import Popup from '../../Screen/Popup';
 import firebase from '../../Firebase/Config';
+import {useMutation, gql} from '@apollo/client';
+
+const BASIC_MUTATION = gql`
+mutation MyMutation($age: String, $name: String, $score: String, $email: String) {
+ insert_iat(objects: {age: $age, email: $email, name: $name, score: $score}) {
+   returning {
+     id
+   }
+ }
+}
+`;
 
 function ScoreWizard(info) {
 
   const [finalScore] = useState(info.info[2]);
   const name = info.info[0];
-  const age = info.info[1];
+  const age = parseInt(info.info[1]);
+  const email = useState("didnt provide")
   const [modalShow, setModalShow] = useState(false);
+  const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
   
   function refreshPage() {
     window.location.reload(false);
   }
 
+  // useEffect(() => {
+  //   firebase.db.collection('IAT').add({
+  //     name: name,
+  //     age: age,
+  //     score: finalScore,
+  //     email: "didnt provide email",
+  //   })
+  // }, [])
+
   useEffect(() => {
-    firebase.db.collection('IAT').add({
-      name: name,
-      age: age,
-      score: finalScore,
-      email: "didnt provide email",
+    first_add({
+      variables: {
+        age: `%${age}%`,
+        name: `%${name}%`,
+        score: `%${finalScore}%`,
+        email: `%${email}%`,
+      }
     })
-  }, [])
+  }, []);
+
+  console.log(data);
 
   return (
     <Col className="container">
