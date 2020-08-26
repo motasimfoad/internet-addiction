@@ -6,27 +6,67 @@ import firebase from '../../Firebase/Config';
 import {useMutation, gql} from '@apollo/client';
 
 const BASIC_MUTATION = gql`
-mutation MyMutation($age: String, $name: String, $score: String, $email: String) {
- insert_iat(objects: {age: $age, email: $email, name: $name, score: $score}) {
-   returning {
-     id
-   }
- }
+mutation MyMutation($age: String, $name: String, $score: String, $email: String, $stage: String) {
+  insert_iat(objects: {age: $age, email: $email, name: $name, score: $score, stage: $stage}) {
+    returning {
+      id,
+      email,
+      name,
+      age,
+      score,
+      stage
+    }
+  }
 }
 `;
 
 function ScoreWizard(info) {
 
   const [finalScore] = useState(info.info[2]);
-  const name = info.info[0];
-  const age = parseInt(info.info[1]);
-  const email = useState("didnt provide")
+  const [name] = useState(info.info[0]) ;
+  const [age] = useState(info.info[1]);
+  const [email] = useState("didnt provide")
   const [modalShow, setModalShow] = useState(false);
+  const [stage, setStage] = useState("");
   const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
   
   function refreshPage() {
     window.location.reload(false);
   }
+
+  function stageSetter() {
+    if (finalScore <= 49) {
+      setStage("mild");
+    } else if (finalScore <= 79) {
+      setStage("moderate");
+    } else if (finalScore <= 100) {
+      setStage("severe");
+    } 
+    else {
+      setStage("none");
+    }
+  }
+
+  function sendToDb() {
+    first_add({
+      variables: {
+        age: `${age}`,
+        name: `${name}`,
+        score: `${finalScore}`,
+        email: `${email}`,
+        stage: `${stage}`
+      }
+    })
+  }
+
+  useEffect(() => {
+    setInterval(() => {
+      stageSetter();
+    }, 1000);
+   
+   console.log(stage +"asd");
+    //sendToDb();
+  }, [])
 
   // useEffect(() => {
   //   firebase.db.collection('IAT').add({
