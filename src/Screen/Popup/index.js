@@ -31,25 +31,23 @@ function Popup(props) {
             <Alert variant="light">
                 <h4>Enter your email so that we can send you some suggestion/information regarding internet addiction</h4>
             </Alert>
-        <Form onSubmit={resultGenerator}>
-            <Form.Group>
-                <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
-            </Form.Group>
-            <Button type="submit" variant="outline-dark" size="lg">Submit</Button>
-            <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
-        </Form>
+          <Form onSubmit={resultGenerator}>
+              <Form.Group>
+                  <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
+              </Form.Group>
+              <Button type="submit" variant="outline-dark" size="lg">Submit</Button>
+              <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
+          </Form>
         </Modal.Body>
-
-        <Toast style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            }} 
-          onClose={() => setShow(false)} show={show} delay={5000} autohide>
-          <Toast.Body>We will get in touch soon <span role="img" aria-label="happy face">😇</span></Toast.Body>
-        </Toast>
-
-        </Modal>
+          <Toast style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              }} 
+            onClose={() => setShow(false)} show={show} delay={5000} autohide>
+            <Toast.Body>We will get in touch soon <span role="img" aria-label="happy face">😇</span></Toast.Body>
+          </Toast>
+      </Modal>
     );
   }
 
