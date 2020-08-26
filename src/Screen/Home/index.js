@@ -49,7 +49,7 @@ function App() {
                           !name || !age ? (
                             <Popover id="Popover-disabled">Fill out the form to enable button !</Popover>
                           ) : (
-                            <Popover id="Popover-disabled">Enabled !</Popover>
+                            <div></div>
                           )}>
                         
                           <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
