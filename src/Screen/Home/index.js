@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import QuizWizard from '../../Component/QuizWizard';
-import {Container, Row, Col, Button, Form, Card, Alert} from 'react-bootstrap';
+import {Container, Row, Col, Button, Form, Card, Alert, OverlayTrigger, Popover} from 'react-bootstrap';
 import '../Home/style.css';
 import Footer from '../../Component/Footer';
 import ReactGa from 'react-ga';
@@ -45,7 +45,16 @@ function App() {
                         <Form.Group>
                         <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
                         </Form.Group>
-                    <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
+                        <OverlayTrigger placement="right" overlay={
+                          !name || !age ? (
+                            <Popover id="Popover-disabled">Fill out the form to enable button !</Popover>
+                          ) : (
+                            <Popover id="Popover-disabled">Enabled !</Popover>
+                          )}>
+                        
+                          <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
+                        </OverlayTrigger>
+                    
                   </Form>
                 </Card.Body>
                 </Card>
