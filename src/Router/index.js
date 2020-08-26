@@ -10,12 +10,12 @@ export default function App() {
     return (
       <Router>
        <Switch>
-            {/* <Route path="/admin">
-              <Admin />
-            </Route> */}
             <Route path="/">
               <Home />
             </Route>
+            {/* <Route path="/admin">
+              <Admin />
+            </Route> */}
           </Switch>
         </Router>
     );
