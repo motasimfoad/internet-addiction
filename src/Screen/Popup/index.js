@@ -31,11 +31,11 @@ function Popup(props) {
             <Alert variant="light">
                 <h4>Enter your email so that we can send you some suggestion/information regarding internet addiction</h4>
             </Alert>
-        <Form>
+        <Form onSubmit={resultGenerator}>
             <Form.Group>
                 <Form.Control size="lg" type="email" placeholder="Enter your email address" onChange={(e)=>setEmail(e.target.value)} required/>
             </Form.Group>
-            <Button type="submit" onClick={resultGenerator} variant="outline-dark" size="lg">Submit</Button>
+            <Button type="submit" variant="outline-dark" size="lg">Submit</Button>
             <Button variant="outline-dark" size="lg" onClick={props.onHide}>Close</Button>
         </Form>
         </Modal.Body>
