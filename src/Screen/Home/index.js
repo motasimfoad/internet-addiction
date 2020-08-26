@@ -4,18 +4,29 @@ import {Container, Row, Col, Button, Form, Card, Alert, OverlayTrigger, Popover}
 import '../Home/style.css';
 import Footer from '../../Component/Footer';
 import ReactGa from 'react-ga';
-
+import {useQuery, gql} from '@apollo/client';
 
 // Google Analytics for Motasim Foad
 ReactGa.initialize("UA-154721739-1");
 ReactGa.pageview('Motasim Foads IAT');
 // Google Analytics for Motasim Foad
 
+const QUERY = gql`
+    {
+      iat {
+        id
+      }
+    }
+`;
+
 function App() {
 
   const [screen, setScreen] = useState("first"); 
   const [name, setName] = useState(""); 
   const [age, setAge] = useState(""); 
+  const {loading, error, data} = useQuery(QUERY);
+
+  console.log(data);
  
   return (
     <Container>
