@@ -51,10 +51,8 @@ function App() {
                           ) : (
                             <div></div>
                           )}>
-                        
                           <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
                         </OverlayTrigger>
-                    
                   </Form>
                 </Card.Body>
                 </Card>
