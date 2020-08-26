@@ -14,9 +14,9 @@ ReactGa.pageview('Motasim Foads IAT');
 function App() {
 
   const [screen, setScreen] = useState("first"); 
-  const [name, setName] = useState("No Name"); 
-  const [age, setAge] = useState("0"); 
-  
+  const [name, setName] = useState(""); 
+  const [age, setAge] = useState(""); 
+ 
   return (
     <Container>
       <Row className="container"> 
@@ -38,14 +38,14 @@ function App() {
                         To begin, answer the following questions and continue.
                       </p>
                     </Alert>
-                  <Form onSubmit={()=>setScreen("second")}>
+                  <Form>
                         <Form.Group>
                         <Form.Control size="lg" type="text" placeholder="name" onChange={(e)=>setName(e.target.value)} required/>
                         </Form.Group>
                         <Form.Group>
                         <Form.Control size="lg" type="number" placeholder="age" max="150" onChange={(e)=>setAge(e.target.value)} required/>
                         </Form.Group>
-                    <Button variant="outline-secondary" size="lg" type="submit">Continue</Button>
+                    <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
                   </Form>
                 </Card.Body>
                 </Card>
