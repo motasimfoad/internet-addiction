@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
 import {Button, Col, Card, ProgressBar} from 'react-bootstrap';
@@ -11,6 +11,28 @@ const [score, setScore] = useState(0);
 const name = info.info[0];
 const age = info.info[1];
 const progressPercent = questionCounter*5;
+const [stage, setStage] = useState("yonone");
+
+
+
+   useEffect(() => {
+    const stageSetter = () =>{
+      if (score <= 49) {
+        return setStage("mild");
+      } else if (score <= 79) {
+        return setStage("moderate");
+      } else if (score <= 100) {
+        return setStage("severe");
+      } 
+      else {
+        return setStage("none");
+      }
+      };
+      console.log('quizwizard' + stage);
+    stageSetter();
+  }, [])
+
+
 
 function pointKeepr(point) {
    setQuestionCounter(questionCounter+1)
@@ -41,7 +63,7 @@ function pointKeepr(point) {
           </Card>
         </div>
       ) : (
-        <ScoreWizard info={[name, age, score]}/>
+        <ScoreWizard info={[name, age, score, stage]}/>
       )}
 
     </Col>

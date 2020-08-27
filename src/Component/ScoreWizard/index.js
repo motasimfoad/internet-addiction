@@ -27,25 +27,43 @@ function ScoreWizard(info) {
   const [age] = useState(info.info[1]);
   const [email] = useState("didnt provide")
   const [modalShow, setModalShow] = useState(false);
-  const [stage, setStage] = useState("");
+  const [stage] = useState(info.info[3]);
   const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
   
   function refreshPage() {
     window.location.reload(false);
   }
 
-  function stageSetter() {
-    if (finalScore <= 49) {
-      setStage("mild");
-    } else if (finalScore <= 79) {
-      setStage("moderate");
-    } else if (finalScore <= 100) {
-      setStage("severe");
-    } 
-    else {
-      setStage("none");
-    }
-  }
+  // const stageSetter = () =>{
+  //   if (finalScore <= 49) {
+  //     return setStage("mild");
+  //   } else if (finalScore <= 79) {
+  //     return setStage("moderate");
+  //   } else if (finalScore <= 100) {
+  //     return setStage("severe");
+  //   } 
+  //   else {
+  //     return setStage("none");
+  //   }
+  //   };
+  //   console.log("result"+stage);
+    
+
+  // function stageSetter() {
+  //   if (finalScore <= 49) {
+  //     setStage("mild");
+  //     console.log(stage);
+  //   } else if (finalScore <= 79) {
+  //     setStage("moderate");
+  //     console.log(stage);
+  //   } else if (finalScore <= 100) {
+  //     setStage("severe");
+  //     console.log(stage);
+  //   } 
+  //   else {
+  //     setStage("none");
+  //   }
+  // }
 
   function sendToDb() {
     first_add({
@@ -59,12 +77,18 @@ function ScoreWizard(info) {
     })
   }
 
+  // setInterval(() => {
+  //   stageSetter();
+  // }, 1000);
+
   useEffect(() => {
-    setInterval(() => {
-      stageSetter();
-    }, 1000);
    
-   console.log(stage +"asd");
+console.log(data);
+    // setInterval(() => {
+    //   console.log("after" +stage);
+    // }, 3000);
+   
+   //console.log(stage +"asd");
     //sendToDb();
   }, [])
 
@@ -88,7 +112,7 @@ function ScoreWizard(info) {
   //   })
   // }, []);
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <Col className="container">

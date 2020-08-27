@@ -1,11 +1,25 @@
 import React, {useState} from 'react';
 import {Button, Modal, Form, Alert, Toast} from 'react-bootstrap';
 import firebase from '../../Firebase/Config';
+import {useMutation, gql} from '@apollo/client';
+
+const FINAL_MUTATION = gql`
+mutation MyMutation($age: String, $name: String, $score: String, $email: String) {
+ insert_iat(objects: {age: $age, email: $email, name: $name, score: $score}) {
+   returning {
+     id
+   }
+ }
+}
+`;
 
 function Popup(props) {
     
     const [email, setEmail] = useState('email');
     const [show, setShow] = useState(false);
+    const name = props.info[0];
+    const age = parseInt(props.info[1]);
+    const score = props.info[2];
 
     const resultGenerator = () =>{
         firebase.db.collection('IAT').add({
