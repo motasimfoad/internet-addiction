@@ -1,18 +1,25 @@
 import React from 'react';
-import {Container, Row} from 'react-bootstrap';
-import '../Home/style.css';
-import Footer from '../../Footer';
+import {Col} from 'react-bootstrap';
+import { Bar } from 'react-chartjs-2';
 
-function Admin() {
+function Dashboard(props) {
 
   return (
-    <Container>
-      <Row className="container"> 
-       dashboard
-      </Row>
-       
-    </Container>
+    <Col>
+      {props.screen === true ? (
+      <div style={{backgroundColor:'red', height:'95vh', textAlign:'center'}}>
+       <h1>
+         Welcome Steve
+       </h1>
+     
+      </div> 
+      ) : (
+        <h1>
+          not authenticated
+        </h1>
+      )}
+    </Col>
   );
 }
 
-export default Admin;
+export default Dashboard;

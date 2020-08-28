@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Col, Button, Form, Card, Alert, OverlayTrigger, Popover} from 'react-bootstrap';
 import '../Home/style.css';
+import Dashboard from '../../../Component/Admin/Dashboard';
 
 function Home() {
 
-  const [screen, setScreen] = useState(false); 
+  const [screen, setScreen] = useState(true); 
   const [name, setName] = useState(""); 
   const [pass, setPass] = useState(0); 
   const [newName] = useState("steve");
@@ -48,9 +49,8 @@ function Home() {
                 </Card.Body>
                 </Card>
               </div>
-           
             ) : ( 
-                <div>hi</div>
+                <Dashboard screen={screen} />
             )}
         </Col> 
     );
