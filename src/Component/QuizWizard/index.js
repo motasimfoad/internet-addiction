@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import questionList from '../../Constant/Question';
 import ScoreWizard from '../ScoreWizard';
 import {Button, Col, Card, ProgressBar} from 'react-bootstrap';
