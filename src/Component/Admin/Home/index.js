@@ -1,17 +1,26 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Button, Form, Card, Alert, OverlayTrigger, Popover} from 'react-bootstrap';
+import {Col, Button, Form, Card, Alert, OverlayTrigger, Popover} from 'react-bootstrap';
 import '../Home/style.css';
-import Footer from '../../../Component/Footer';
 
 function Home() {
 
-  const [screen, setScreen] = useState("first"); 
+  const [screen, setScreen] = useState(false); 
   const [name, setName] = useState(""); 
   const [pass, setPass] = useState(0); 
+  const [newName] = useState("steve");
+  const [newPass] = useState("1234abcd");
+
+  function identityVerify() {
+        if (name === newName && pass === newPass) {
+            setScreen(true);
+        } else {
+            alert("Incorrect credential")
+        }
+  }
  
   return (
-    
-      <Col >
+        <Col >
+            {screen === false ? (
               <div className="vertical-center">
                 <Card>
                 <Card.Body>
@@ -33,15 +42,18 @@ function Home() {
                           ) : (
                             <Popover id="Popover-disabled">Enabled!</Popover>
                           )}>
-                          <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !pass}>Continue</Button>
+                          <Button onClick={identityVerify} variant="outline-secondary" size="lg" disabled={!name || !pass}>Continue</Button>
                         </OverlayTrigger>
                   </Form>
                 </Card.Body>
                 </Card>
               </div>
-            </Col>
-   
-  );
+           
+            ) : ( 
+                <div>hi</div>
+            )}
+        </Col> 
+    );
 }
 
 export default Home;
