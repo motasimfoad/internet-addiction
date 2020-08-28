@@ -4,6 +4,7 @@ import {Container, Row, Col, Button, Form, Card, Alert, OverlayTrigger, Popover}
 import '../Home/style.css';
 import Footer from '../../Component/Footer';
 import ReactGa from 'react-ga';
+import Home from '../../Component/Admin/Home';
 
 function Admin() {
 
@@ -14,9 +15,7 @@ function Admin() {
   return (
     <Container>
       <Row className="container"> 
-        <h1>
-          admin
-        </h1>
+       <Home />
       </Row>
         <Footer />
     </Container>
