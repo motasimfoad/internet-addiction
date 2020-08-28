@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Button, Col, Card, ProgressBar, Alert} from 'react-bootstrap';
+import {Button, Col, Card, Alert} from 'react-bootstrap';
 import scoreText from '../../Constant/Score';
 import Popup from '../../Screen/Popup';
 import {useMutation, gql} from '@apollo/client';
@@ -27,7 +27,7 @@ function ScoreWizard(info) {
   const [email] = useState("didnt provide")
   const [modalShow, setModalShow] = useState(false);
   const [stage] = useState(info.info[3]);
-  const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
+  const [first_add] = useMutation(BASIC_MUTATION);
 
   function refreshPage() {
     window.location.reload(false);
@@ -47,7 +47,7 @@ function ScoreWizard(info) {
 
   useEffect(() => {
     sendToDb();
-   }, [])
+  });
 
   return (
     <Col className="container">

@@ -25,7 +25,7 @@ function Popup(props) {
     const age = props.info[1];
     const score = props.info[2];
     const stage = props.info[3];
-    const [first_add, {loading, error, data}] = useMutation(FINAL_MUTATION);
+    const [first_add] = useMutation(FINAL_MUTATION);
 
     function resultGenerator() {
       first_add({
