@@ -73,7 +73,7 @@ function ScoreWizard(info) {
         <Popup
           show={modalShow}
           onHide={() => setModalShow(false)}
-          info={[name, age, finalScore]}
+          info={[name, age, finalScore, stage]}
         />
     </Col>
   );
