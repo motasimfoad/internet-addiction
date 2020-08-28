@@ -2,22 +2,21 @@ import React, {useState, useEffect} from 'react';
 import {Button, Col, Card, ProgressBar, Alert} from 'react-bootstrap';
 import scoreText from '../../Constant/Score';
 import Popup from '../../Screen/Popup';
-import firebase from '../../Firebase/Config';
 import {useMutation, gql} from '@apollo/client';
 
 const BASIC_MUTATION = gql`
-mutation MyMutation($age: String, $name: String, $score: String, $email: String, $stage: String) {
-  insert_iat(objects: {age: $age, email: $email, name: $name, score: $score, stage: $stage}) {
-    returning {
-      id,
-      email,
-      name,
-      age,
-      score,
-      stage
+  mutation MyMutation($age: String, $name: String, $score: String, $email: String, $stage: String) {
+    insert_iat(objects: {age: $age, email: $email, name: $name, score: $score, stage: $stage}) {
+      returning {
+        id,
+        email,
+        name,
+        age,
+        score,
+        stage
+      }
     }
   }
-}
 `;
 
 function ScoreWizard(info) {
@@ -30,42 +29,9 @@ function ScoreWizard(info) {
   const [stage] = useState(info.info[3]);
   const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
 
-  console.log(stage +" 2nd page");
-  
   function refreshPage() {
     window.location.reload(false);
   }
-
-  // const stageSetter = () =>{
-  //   if (finalScore <= 49) {
-  //     return setStage("mild");
-  //   } else if (finalScore <= 79) {
-  //     return setStage("moderate");
-  //   } else if (finalScore <= 100) {
-  //     return setStage("severe");
-  //   } 
-  //   else {
-  //     return setStage("none");
-  //   }
-  //   };
-  //   console.log("result"+stage);
-    
-
-  // function stageSetter() {
-  //   if (finalScore <= 49) {
-  //     setStage("mild");
-  //     console.log(stage);
-  //   } else if (finalScore <= 79) {
-  //     setStage("moderate");
-  //     console.log(stage);
-  //   } else if (finalScore <= 100) {
-  //     setStage("severe");
-  //     console.log(stage);
-  //   } 
-  //   else {
-  //     setStage("none");
-  //   }
-  // }
 
   function sendToDb() {
     first_add({
@@ -79,42 +45,9 @@ function ScoreWizard(info) {
     })
   }
 
-  // setInterval(() => {
-  //   stageSetter();
-  // }, 1000);
-
   useEffect(() => {
-   
-console.log(data);
-    // setInterval(() => {
-    //   console.log("after" +stage);
-    // }, 3000);
-   
-   //console.log(stage +"asd");
-    //sendToDb();
-  }, [])
-
-  // useEffect(() => {
-  //   firebase.db.collection('IAT').add({
-  //     name: name,
-  //     age: age,
-  //     score: finalScore,
-  //     email: "didnt provide email",
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   first_add({
-  //     variables: {
-  //       age: `%${age}%`,
-  //       name: `%${name}%`,
-  //       score: `%${finalScore}%`,
-  //       email: `%${email}%`,
-  //     }
-  //   })
-  // }, []);
-
-  //console.log(data);
+    sendToDb();
+   }, [])
 
   return (
     <Col className="container">
