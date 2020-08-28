@@ -29,6 +29,8 @@ function ScoreWizard(info) {
   const [modalShow, setModalShow] = useState(false);
   const [stage] = useState(info.info[3]);
   const [first_add, {loading, error, data}] = useMutation(BASIC_MUTATION);
+
+  console.log(stage +" 2nd page");
   
   function refreshPage() {
     window.location.reload(false);

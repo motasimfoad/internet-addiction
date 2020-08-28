@@ -11,33 +11,26 @@ const [score, setScore] = useState(0);
 const name = info.info[0];
 const age = info.info[1];
 const progressPercent = questionCounter*5;
-const [stage, setStage] = useState("yonone");
-
-
-
-   useEffect(() => {
-    const stageSetter = () =>{
-      if (score <= 49) {
-        return setStage("mild");
-      } else if (score <= 79) {
-        return setStage("moderate");
-      } else if (score <= 100) {
-        return setStage("severe");
-      } 
-      else {
-        return setStage("none");
-      }
-      };
-      console.log('quizwizard' + stage);
-    stageSetter();
-  }, [])
-
-
+const [stage, setStage] = useState("none");
 
 function pointKeepr(point) {
    setQuestionCounter(questionCounter+1)
    setScore(score+point);
+   stageSetter();
 }
+
+const stageSetter = () =>{
+    if (score <= 49) {
+      return setStage("mild");
+    } else if (score <= 79) {
+      return setStage("moderate");
+    } else if (score <= 100) {
+      return setStage("severe");
+    } 
+    else {
+      return setStage("none");
+    }
+  };
 
   return (
     <Col className="container">
@@ -65,7 +58,6 @@ function pointKeepr(point) {
       ) : (
         <ScoreWizard info={[name, age, score, stage]}/>
       )}
-
     </Col>
   );
 }
