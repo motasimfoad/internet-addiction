@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Modal, Form, Alert, Toast} from 'react-bootstrap';
-import firebase from '../../Firebase/Config';
 import {useMutation, gql} from '@apollo/client';
-import { func } from 'prop-types';
 
 const FINAL_MUTATION = gql`
   mutation MyMutation($age: String, $name: String, $score: String, $email: String, $stage: String) {
