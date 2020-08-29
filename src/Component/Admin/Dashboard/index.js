@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col} from 'react-bootstrap';
 import { Bar } from 'react-chartjs-2';
-import {Mild} from '../../Admin/GraphAnalyzer';
+import {Mild, Modarate, Severe} from '../../Admin/GraphAnalyzer';
 
 
 
@@ -9,6 +9,8 @@ import {Mild} from '../../Admin/GraphAnalyzer';
 function Dashboard(props) {
  
 const a = Mild();
+const b = Modarate();
+const c = Severe();
   
  console.log(a);
 
@@ -16,13 +18,17 @@ const a = Mild();
   labels: ['MILD', 'MODARATE', 'SEVERE'],
   datasets: [
     {
-      label: 'stages vs total number',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [a, 59, 80]
+      label: 'Number of People vs Addiction Stages',
+      backgroundColor: [
+      '#1abc9c',
+      '#f39c12',
+      '#e74c3c',],
+      hoverBackgroundColor: [
+      '#16a085',
+      '#e67e22',
+      '#c0392b',
+      ],
+      data: [a, b, c]
     }
   ]
 };

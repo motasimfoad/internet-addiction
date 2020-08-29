@@ -30,5 +30,4 @@ query Severe {
 }
 `;
 
-
 export  {MILD_COUNT, MODARATE_COUNT, SEVERE_COUNT};
