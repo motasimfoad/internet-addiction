@@ -3,8 +3,6 @@ import {Col, Card, Button} from 'react-bootstrap';
 import { Bar, Doughnut } from 'react-chartjs-2';
 import {Mild, Modarate, Severe, CA, CB, CC, CD, CE, CF, CG, CH, CI} from '../../Admin/GraphAnalyzer';
 
-
-
 function Dashboard(props) {
  
 const mild = Mild();
@@ -84,7 +82,7 @@ const data2 = {
           width={100}
           height={100}
           options={{
-            maintainAspectRatio: true
+          maintainAspectRatio: true
           }}
         />
          </Card.Body>

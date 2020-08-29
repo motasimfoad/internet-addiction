@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Col, Button, Form, Card, Alert, OverlayTrigger, Popover} from 'react-bootstrap';
-import '../Home/style.css';
 import Dashboard from '../../../Component/Admin/Dashboard';
 
 function Home() {

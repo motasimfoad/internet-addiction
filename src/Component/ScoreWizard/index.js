@@ -45,9 +45,9 @@ function ScoreWizard(info) {
     })
   }
 
-  useEffect(() => {
+   useEffect(() => {
     sendToDb();
-  });
+  }, []);
 
   return (
     <Col className="container">
@@ -67,7 +67,6 @@ function ScoreWizard(info) {
             <Button variant="outline-dark" onClick={() => setModalShow(true)}>Need Assistance?</Button>
             <Button variant="outline-dark" onClick={refreshPage}>Restart</Button>
           </Card.Body>
-          
         </Card>
       </div>
         <Popup

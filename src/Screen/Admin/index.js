@@ -8,9 +8,9 @@ function Admin() {
   return (
     <Container>
       <Row className="container"> 
-       <Home />
+        <Home />
       </Row>
-        <Footer />
+      <Footer />
     </Container>
   );
 }
