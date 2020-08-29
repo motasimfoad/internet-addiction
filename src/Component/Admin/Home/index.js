@@ -5,7 +5,7 @@ import Dashboard from '../../../Component/Admin/Dashboard';
 
 function Home() {
 
-  const [screen, setScreen] = useState(true); 
+  const [screen, setScreen] = useState(false); 
   const [name, setName] = useState(""); 
   const [pass, setPass] = useState(0); 
   const [newName] = useState("steve");
