@@ -10,7 +10,13 @@ const modarate = Modarate();
 const severe = Severe();
 const a = CA();
 const b = CB();
-
+const c = CC();
+const d = CD();
+const e = CE();
+const f = CF();
+const g = CG();
+const h = CH();
+const i = CI();
 
  const data2 = {
   labels: ['MILD', 'MODARATE', 'SEVERE'],
@@ -36,9 +42,9 @@ const data3 = {
   datasets: [
     {
       label: 'Number of People vs Age Range',
-      backgroundColor: '#1abc9c',
-      hoverBackgroundColor: '#16a085',
-      data: [a, b, 7]
+      backgroundColor: '#34495e',
+      hoverBackgroundColor: '#2c3e50',
+      data: [a, b, c, d, e, f, g, h, i]
     }
   ]
 };
