@@ -14,7 +14,7 @@ export default function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/admin">
+            <Route exact path="/admin">
               <Admin />
             </Route>
           </Switch>
