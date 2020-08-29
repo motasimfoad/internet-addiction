@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer, useContext} from 'react';
 import {Col} from 'react-bootstrap';
 import { Bar } from 'react-chartjs-2';
 import {gql, useQuery} from '@apollo/client';
@@ -33,12 +33,52 @@ query Severe {
 }
 `;
 
+// const [a, setA] = useState();
+
+
+const TodoPrivateListQuery = () => {
+
+  const { loading, error, data } = useQuery(MILD_COUNT);
+
+
+
+  if (data) {
+
+    return parseInt (data.iat_aggregate.aggregate.count);
+    
+    //(data.iat_aggregate.aggregate.count);
+
+  }
+
+  if (error) {
+
+    console.error(error);
+
+    return <div>Error!</div>;
+
+  }
+
+  return <div>Loading...</div>;
+
+};
 
 
 
 
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+// const [mildGraph, setMildGraph] = useState();
+
+
+
+function Dashboard(props) {
+  //const data = useQuery(MILD_COUNT);
+  //  const a = useState({TodoPrivateListQuery})
+  //console.log([data.data][0]);
+const a = TodoPrivateListQuery();
+  
+ console.log(a);
+
+ const data2 = {
+  labels: ['MILD', 'MODARATE', 'SEVERE'],
   datasets: [
     {
       label: 'stages vs total number',
@@ -47,14 +87,11 @@ const data = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: [a, 59, 80]
     }
   ]
 };
-
-function Dashboard(props) {
-  const mild = useQuery(MILD_COUNT);
-  console.log(mild.data);
+  
 
   return (
     <Col>
@@ -64,7 +101,7 @@ function Dashboard(props) {
          Welcome Steve
        </h1>
        <Bar
-          data={data}
+          data={data2}
           width={100}
           height={50}
           options={{
