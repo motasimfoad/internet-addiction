@@ -1,6 +1,7 @@
 ## IAT (Internet Addiction Test by DR Kimberly Young) using ReactJS
 
 Simple Internet Addiction testing app built using ReactJS, React Hooks, Firebase. 
+Update : Backend changed to hasura, graphQL and Postgre 
 
 Live Demo : https://iat.motasimfoad.com
 
