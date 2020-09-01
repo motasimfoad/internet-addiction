@@ -11,12 +11,9 @@ export default function App() {
     return (
       <Router>
        <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/admin">
-              <Admin />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/admin" component={Admin} />
+            <Route path="*" component={Home} />
           </Switch>
         </Router>
     );
