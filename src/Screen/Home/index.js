@@ -4,7 +4,6 @@ import {Container, Row, Col, Button, Form, Card, Alert, OverlayTrigger, Popover}
 import '../Home/style.css';
 import Footer from '../../Component/Footer';
 import ReactGa from 'react-ga';
-import { Link } from "react-router-dom";
 
 // Google Analytics for Motasim Foad
 ReactGa.initialize("UA-154721739-1");
@@ -53,7 +52,6 @@ function App() {
                           )}>
                           <Button onClick={()=>setScreen("second")} variant="outline-secondary" size="lg" disabled={!name || !age}>Continue</Button>
                         </OverlayTrigger>
-                        <Link to="/admin"><Button variant="outline-secondary" size="lg">Admin</Button></Link>
                   </Form>
                 </Card.Body>
                 </Card>
